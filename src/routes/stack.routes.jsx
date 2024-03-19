@@ -4,11 +4,13 @@ import Details from "../screens/Details";
 
 const Stack = createNativeStackNavigator();
 
-const StackRoutes = () => {
+const StackRoutes = ({ route }) => {
+  const { category } = route.params;
+
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="PlanetsRegistered" component={PlanetsRegistered} />
-      <Stack.Screen name="Details" component={Details} />
+    <Stack.Navigator screenOptions={{ headerShow: false }}>
+      <Stack.Screen name="Planetas Registrados" component={PlanetsRegistered} initialParams= {{ category }}/>
+      <Stack.Screen name="Detalhes dos Planetas" component={Details} />
     </Stack.Navigator>
   );
 };

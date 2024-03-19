@@ -1,4 +1,4 @@
-const Planet = [
+export const Planet = [
     {
         id: "1",
         nomePlaneta: "Marte",
@@ -26,4 +26,4 @@ const Planet = [
              título: "Imperatriz Suprema da Cidade Vermelha"}
         ]
     }
-]
+];
