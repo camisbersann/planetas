@@ -1,8 +1,8 @@
 const Planet = [
     {
         id: "1",
-        name: "Marte",
-        dataDaConquista: "08/12/2040",
+        nomePlaneta: "Marte",
+        dataConquista: "08/12/2040",
         corPrimaria: "#8b0000",
         corSecundaria: "#964b00",
         população: 0,
