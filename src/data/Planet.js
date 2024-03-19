@@ -1,4 +1,4 @@
-const Planets = [
+const Planet = [
     {
         id: "1",
         name: "Marte",
