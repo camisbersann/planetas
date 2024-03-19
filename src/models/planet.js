@@ -1,4 +1,4 @@
- class Planet {
+ class PlanetClass {
     constructor(nomePlaneta, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, numeroAssentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo) {
         this.id = this.gerarId();
         this.nomePlaneta = nomePlaneta;
@@ -19,4 +19,4 @@
         return Math.floor(Math.random() * 1000);
     }
 }
-export default Planet;
+export default PlanetClass;

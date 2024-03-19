@@ -19,3 +19,4 @@ class PlanetList {
         return this.planets;
     }
 }
+export default PlanetList;

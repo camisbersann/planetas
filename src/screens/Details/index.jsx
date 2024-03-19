@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import styles from './styles';
-import { Planet } from '../../data/Planet';
+import PlanetClass from '../../models/planet';
 
 export default function Details({ route }) {
   const { planet } = route.params;

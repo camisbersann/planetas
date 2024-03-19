@@ -15,14 +15,14 @@ const TabRoutes = () => {
       options={{
         tabBarIcon: ({ focused }) => (
           <Feather
-            name="edit"
+            name="clipboard"
             size={24}
-            color={focused ? "#131313" : "#D6D6D6"}
+            color={focused ? "#9370DB" : "#D3D3D3"}
           />
         ),
-        tabBarLabel: "Perfil",
-        tabBarActiveTintColor: "#131313",
-        tabBarInactiveTintColor: "#D6D6D6",
+        tabBarLabel: "Registrar Planeta",
+        tabBarActiveTintColor: "#9370DB",
+        tabBarInactiveTintColor: "#D3D3D3",
       }}/>
 
       {Planet.map((category) => (
@@ -30,10 +30,34 @@ const TabRoutes = () => {
         name={"Planetas"}
         component={StackRoutes}
         initialParams={{ category }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="moon"
+              size={24}
+              color={focused ? "#9370DB" : "#D3D3D3"}
+            />
+          ),
+          tabBarLabel: "Planetas",
+          tabBarActiveTintColor: "#9370DB",
+          tabBarInactiveTintColor: "#D3D3D3",
+        }}
         />
       ))}
 
-      <Tab.Screen name="Desenvolvedor" component={Developer}/>
+      <Tab.Screen name="Desenvolvedor" component={Developer}
+       options={{
+        tabBarIcon: ({ focused }) => (
+          <Feather
+            name="user"
+            size={24}
+            color={focused ? "#9370DB" : "#D3D3D3"}
+          />
+        ),
+        tabBarLabel: "Desenvolvedor",
+        tabBarActiveTintColor: "#9370DB",
+        tabBarInactiveTintColor: "#D3D3D3",
+      }}/>
     </Tab.Navigator>
   );
 };
