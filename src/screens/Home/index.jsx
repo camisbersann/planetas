@@ -1,13 +1,85 @@
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
 import Inputs from '../../components/Inputs';
+import { useState } from 'react';
+import PlanetClass from '../../models/planet';
+import list from '../../models/planetList';
+import { useNavigation } from "@react-navigation/native";
+
+
+
+let planetId = 1
 
 export default function Home() {
+  const navigation = useNavigation();
+
+  const [nome, setNome] = useState('');
+  const [dataConquista, setDataConquista] = useState('');
+  const [corPrimaria, setCorPrimaria] = useState('');
+  const [corSecundaria, setCorSecundaria] = useState('');
+  const [populacao, setPopulacao] = useState('');
+  const [recursosNaturais, setRecursosNaturais] = useState('');
+  const [assentamentos, setAssentamentos] = useState('');
+  const [galaxia, setGalaxia] = useState('');
+  const [sistemaSolar, setsistemaSolar] = useState('');
+  const [coordenadas, setCoordenadas] = useState('');
+  const [nomeGovernante, setNomeGovernante] = useState('');
+  const [titulo, setTitulo] = useState('');
+
+  const [allPlanets, setAllPlanets] = useState(list.getAll())
+
+  const createPlanet = () => {
+    const newPlanet = new PlanetClass(planetId++, nome, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo)
+
+    list.addPlanet(newPlanet)
+    setAllPlanets(list.getAll())
+    
+
+    setNome('');
+    setDataConquista('');
+    setCorPrimaria('');
+    setCorSecundaria('');
+    setRecursosNaturais('');
+    setPopulacao('');
+    setAssentamentos('');
+    setGalaxia('');
+    setsistemaSolar('');
+    setCoordenadas('');
+    setNomeGovernante('');
+    setTitulo('');
+
+    return newPlanet;
+
+  }
+
   return (
     <View style={styles.container}>
       <Title title={"Registrar"}/>
-      <Inputs text={"Nome do Planeta"} value={Text} keyBoard="email-address"/>
+
+      <View>
+      <Inputs text={"Nome do Planeta"} value={nome} keyBoard="email-address" onChangeText={setNome}/>
+      <Inputs text={"Data da Conquista"} value={dataConquista} keyBoard="numeric" onChangeText={setDataConquista}/>
+      <Inputs text={"Cor Primária"} value={corPrimaria} keyBoard="email-address" onChangeText={setCorPrimaria}/>
+      <Inputs text={"Cor Secundária"} value={corSecundaria} keyBoard="email-address" onChangeText={setCorSecundaria}/>
+      <Inputs text={"Recursos Naturais"} value={recursosNaturais} keyBoard="email-address" onChangeText={setRecursosNaturais}/>
+      <Inputs text={"População"} value={populacao} keyBoard="numeric" onChangeText={setPopulacao}/>
+      <Inputs text={"Número Assentamentos Humanos"} value={assentamentos} keyBoard="numeric" onChangeText={setAssentamentos}/>
+      <Inputs text={"Galáxia"} value={galaxia} keyBoard="email-address" onChangeText={setGalaxia}/>
+      <Inputs text={"Sistema Solar"} value={sistemaSolar} keyBoard="email-address" onChangeText={setsistemaSolar}/>
+      <Inputs text={"Coordenadas"} value={coordenadas} keyBoard="numeric" onChangeText={setCoordenadas}/>
+      <Inputs text={"Nome do Governante"} value={nomeGovernante} keyBoard="email-address" onChangeText={setNomeGovernante}/>
+      <Inputs text={"Título"} value={titulo} keyBoard="email-address" onChangeText={setTitulo}/>
+
+    <TouchableOpacity style={styles.button} onPress={createPlanet}>
+      <Text>Registrar Planeta</Text>
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => navigation.navigate("PlanetsRegistered", { allPlanets })}>
+      <Text>Planetas Registrados</Text>
+    </TouchableOpacity>
+      </View>
+      
     </View>
   )
 }

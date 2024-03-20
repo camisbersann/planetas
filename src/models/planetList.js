@@ -1,22 +1,41 @@
+//import PlanetClass from "./planet";
+import { Planet } from "../data/Planet";
+
 class PlanetList {
-    constructor(){
-        this.planets = [];
+  constructor() {
+    this.planets = [];
+  }
+
+  addPlanet(planet) {
+    this.planets.push(planet);
+  }
+
+  getPlanetById(id) {
+    return this.planets.find((planet) => planet.id == id);
+  }
+
+  remove(id) {
+    this.planets = this.planets.filter((planet) => planet.id != id);
+  }
+
+  getAll() {
+    return this.planets;
+  }
+
+  update(id, name, dataConquista) {
+    const user = this.getPlanetById(id);
+
+    if (user) {
+      user.name = name;
+      user.dataConquista = dataConquista;
     }
 
-    addPlanet(planet){
-        this.planets.push(planet);
-    }
-
-    getPlanet(id){
-        return this.planets.find(planet => planet.id == id);
-    }
-
-    removePlanet(id){
-        this.planets = this.planets.filter((planet) => planet.id != id);
-    }
-
-    getAll(){
-        return this.planets;
-    }
+    return user;
+  }
 }
-export default PlanetList;
+
+const list = new PlanetList();
+
+list.addPlanet(Planet);
+
+export default list

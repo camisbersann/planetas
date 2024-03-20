@@ -1,14 +1,17 @@
 import { View, Text } from 'react-native';
 import styles from './styles';
 import PlanetClass from '../../models/planet';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Details({ route }) {
-  const { planet } = route.params;
+  const navigation = useNavigation();
+  const { data } = route.params;
+
+  console.log("Hereee", data);
 
   return (
     <View style={styles.container}>
-      <Text>{planet.nomePlaneta}</Text>
-      <Text>{planet.corPrimaria}</Text>
+      <Text>{data.nomePlaneta}</Text>
     </View>
   )
 }
