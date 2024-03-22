@@ -19,40 +19,40 @@ const TabRoutes = () => {
           <Feather
             name="clipboard"
             size={24}
-            color={focused ? "#9370DB" : "#D3D3D3"}
+            color={focused ? "#9370DB" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Registrar Planeta",
         tabBarActiveTintColor: "#9370DB",
-        tabBarInactiveTintColor: "#D3D3D3",
+        tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
       <Tab.Screen name="PlanetsRegistered" component={PlanetsRegistered} 
       options={{
         tabBarIcon: ({ focused }) => (
           <Feather
-            name="clipboard"
+            name="moon"
             size={24}
-            color={focused ? "#9370DB" : "#D3D3D3"}
+            color={focused ? "#9370DB" : "#A9A9A9"}
           />
         ),
-        tabBarLabel: "Registrar Planeta",
+        tabBarLabel: "Planetas",
         tabBarActiveTintColor: "#9370DB",
-        tabBarInactiveTintColor: "#D3D3D3",
+        tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
       <Tab.Screen name="Details" component={Details} 
       options={{
         tabBarIcon: ({ focused }) => (
           <Feather
-            name="clipboard"
+            name="info"
             size={24}
-            color={focused ? "#9370DB" : "#D3D3D3"}
+            color={focused ? "#9370DB" : "#A9A9A9"}
           />
         ),
-        tabBarLabel: "Registrar Planeta",
+        tabBarLabel: "Detalhes",
         tabBarActiveTintColor: "#9370DB",
-        tabBarInactiveTintColor: "#D3D3D3",
+        tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
     
@@ -64,12 +64,12 @@ const TabRoutes = () => {
           <Feather
             name="user"
             size={24}
-            color={focused ? "#9370DB" : "#D3D3D3"}
+            color={focused ? "#9370DB" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Desenvolvedor",
         tabBarActiveTintColor: "#9370DB",
-        tabBarInactiveTintColor: "#D3D3D3",
+        tabBarInactiveTintColor: "#A9A9A9",
       }}/>
     </Tab.Navigator>
   );
