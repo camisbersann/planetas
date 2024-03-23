@@ -12,6 +12,12 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         backgroundColor: "#9F8DB5",
         alignItems:"center",
-    }
+    },
+
+    deleteButton: {
+        padding: 8,
+        borderRadius: 8,  
+        backgroundColor: "#BB96DC"
+    },
 });
 export default styles;
