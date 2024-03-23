@@ -78,19 +78,19 @@ export default function Home({ route }) {
 
   return (
     <View style={styles.container}>
-      <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
+      <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta"} />
 
-      <TextInput placeholder='Nome do Planeta' onChangeText={setNomePlaneta} value={nomePlaneta}/>
-      <TextInput placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista}/>
-      <TextInput placeholder='Cor Primária' onChangeText={setCorPrimaria} value={corPrimaria}/>
-      <TextInput placeholder='Cor  Secundária' onChangeText={setCorSecundaria} value={corSecundaria}/>
-      <TextInput placeholder='População' onChangeText={setPopulacao} value={populacao}/>
-      <TextInput placeholder='Assentamentos Humanos' onChangeText={setAssentamentos} value={assentamentos}/>
-      <TextInput placeholder='Galáxia' onChangeText={setGalaxia} value={galaxia}/>
-      <TextInput placeholder='Sistema Solar' onChangeText={setSistemaSolar} value={sistemaSolar}/>
-      <TextInput placeholder='Coordenadas' onChangeText={setCoordenadas} value={coordenadas}/>
-      <TextInput placeholder='Nome do Governante' onChangeText={setNomeGovernante} value={nomeGovernante}/>
-      <TextInput placeholder='Título' onChangeText={setTitulo} value={titulo}/>
+      <TextInput style={styles.planetInput} placeholder='Nome do Planeta' onChangeText={setNomePlaneta} value={nomePlaneta}/>
+      <TextInput style={styles.planetInput} placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista}/>
+      <TextInput style={styles.planetInput} placeholder='Cor Primária' onChangeText={setCorPrimaria} value={corPrimaria}/>
+      <TextInput style={styles.planetInput} placeholder='Cor  Secundária' onChangeText={setCorSecundaria} value={corSecundaria}/>
+      <TextInput style={styles.planetInput} placeholder='População' onChangeText={setPopulacao} value={populacao}/>
+      <TextInput style={styles.planetInput} placeholder='Assentamentos Humanos' onChangeText={setAssentamentos} value={assentamentos}/>
+      <TextInput style={styles.planetInput} placeholder='Galáxia' onChangeText={setGalaxia} value={galaxia}/>
+      <TextInput style={styles.planetInput} placeholder='Sistema Solar' onChangeText={setSistemaSolar} value={sistemaSolar}/>
+      <TextInput style={styles.planetInput} placeholder='Coordenadas' onChangeText={setCoordenadas} value={coordenadas}/>
+      <TextInput style={styles.planetInput} placeholder='Nome do Governante' onChangeText={setNomeGovernante} value={nomeGovernante}/>
+      <TextInput style={styles.planetInput} placeholder='Título' onChangeText={setTitulo} value={titulo}/>
 
       <TouchableOpacity style={styles.button} onPress={handlePlanetAction}>
         <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
