@@ -1,19 +1,20 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
 import Inputs from '../../components/Inputs';
-import { useEffect, useState } from 'react';
 import PlanetClass from '../../models/planet';
 import list from '../../models/planetList';
 import { useNavigation } from "@react-navigation/native";
 
-
-
-export default function Home() {
-  let { planet, edit } = route.params;
+export default function Home({ route }) {
   const navigation = useNavigation();
 
-  const [nome, setNome] = useState('');
+  // Verifica se route e route.params existem antes de acessá-los
+  const planetParams = route?.params?.planet;
+  const edit = route?.params?.edit;
+
+  const [nomePlaneta, setNomePlaneta] = useState('');
   const [dataConquista, setDataConquista] = useState('');
   const [corPrimaria, setCorPrimaria] = useState('');
   const [corSecundaria, setCorSecundaria] = useState('');
@@ -21,48 +22,47 @@ export default function Home() {
   const [recursosNaturais, setRecursosNaturais] = useState('');
   const [assentamentos, setAssentamentos] = useState('');
   const [galaxia, setGalaxia] = useState('');
-  const [sistemaSolar, setsistemaSolar] = useState('');
+  const [sistemaSolar, setSistemaSolar] = useState('');
   const [coordenadas, setCoordenadas] = useState('');
   const [nomeGovernante, setNomeGovernante] = useState('');
   const [titulo, setTitulo] = useState('');
   const [isUpdate, setIsUpdate] = useState(edit);
 
   useEffect(() => {
-    if(edit){
-      setNome(planet.nome);
-      setDataConquista(planet.dataConquista);
-      setCorPrimaria(planet.corPrimaria);
-      setCorSecundaria(planet.corSecundaria);
-      setPopulacao(planet.populacao);
-      setRecursosNaturais(planet.recursosNaturais);
-      setAssentamentos(planet.assentamentos);
-      setGalaxia(planet.galaxia)
-      setsistemaSolar(planet.sistemaSolar);
-      setCoordenadas(planet.coordenadas);
-      setNomeGovernante(planet.nomeGovernante);
-      setTitulo(planet.titulo);
+    if (edit) {
+      setNomePlaneta(planetParams.nomePlaneta);
+      setDataConquista(planetParams.dataConquista);
+      setCorPrimaria(planetParams.corPrimaria);
+      setCorSecundaria(planetParams.corSecundaria);
+      setPopulacao(planetParams.populacao);
+      setRecursosNaturais(planetParams.recursosNaturais);
+      setAssentamentos(planetParams.assentamentos);
+      setGalaxia(planetParams.galaxia)
+      setSistemaSolar(planetParams.sistemaSolar);
+      setCoordenadas(planetParams.coordenadas);
+      setNomeGovernante(planetParams.nomeGovernante);
+      setTitulo(planetParams.titulo);
       setIsUpdate(true);
-    }else {
+    } else {
       clearInputs();
     }
-  }, [planet, edit]);
+  }, [planetParams, edit]);
 
   const handlePlanetAction = () => {
-    if(isUpdate) {
-      list.update(planet.id, nome, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
+    if (isUpdate) {
+      list.update(planetParams.id, nomePlaneta, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
       clearInputs();
     } else {
-      const newPlanet = new PlanetClass(nome, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
+      const newPlanet = new PlanetClass(nomePlaneta, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
       list.addPlanet(newPlanet);
       clearInputs();
     }
-  navigation.navigate("PlanetsRegistered");
+    navigation.navigate("PlanetsRegistered");
   };
 
   const clearInputs = () => {
     setIsUpdate(false);
-    edit = false;
-    setNome('');
+    setNomePlaneta('');
     setDataConquista('');
     setCorPrimaria('');
     setCorSecundaria('');
@@ -70,39 +70,37 @@ export default function Home() {
     setPopulacao('');
     setAssentamentos('');
     setGalaxia('');
-    setsistemaSolar('');
+    setSistemaSolar('');
     setCoordenadas('');
     setNomeGovernante('');
     setTitulo('');
   }
 
-
   return (
     <View style={styles.container}>
-      <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"}/>
+      <Title title={isUpdate ? "Editar Planeta" : "Novo Planeta"} />
 
-      <Inputs text={"Nome do Planeta"} value={nome} keyBoard="email-address" onChangeText={setNome}/>
-      <Inputs text={"Data da Conquista"} value={dataConquista} keyBoard="numeric" onChangeText={setDataConquista}/>
-      <Inputs text={"Cor Primária"} value={corPrimaria} keyBoard="email-address" onChangeText={setCorPrimaria}/>
-      <Inputs text={"Cor Secundária"} value={corSecundaria} keyBoard="email-address" onChangeText={setCorSecundaria}/>
-      <Inputs text={"Recursos Naturais"} value={recursosNaturais} keyBoard="email-address" onChangeText={setRecursosNaturais}/>
-      <Inputs text={"População"} value={populacao} keyBoard="numeric" onChangeText={setPopulacao}/>
-      <Inputs text={"Número Assentamentos Humanos"} value={assentamentos} keyBoard="numeric" onChangeText={setAssentamentos}/>
-      <Inputs text={"Galáxia"} value={galaxia} keyBoard="email-address" onChangeText={setGalaxia}/>
-      <Inputs text={"Sistema Solar"} value={sistemaSolar} keyBoard="email-address" onChangeText={setsistemaSolar}/>
-      <Inputs text={"Coordenadas"} value={coordenadas} keyBoard="numeric" onChangeText={setCoordenadas}/>
-      <Inputs text={"Nome do Governante"} value={nomeGovernante} keyBoard="email-address" onChangeText={setNomeGovernante}/>
-      <Inputs text={"Título"} value={titulo} keyBoard="email-address" onChangeText={setTitulo}/>
+      <TextInput placeholder='Nome do Planeta' onChangeText={setNomePlaneta} value={nomePlaneta}/>
+      <TextInput placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista}/>
+      <TextInput placeholder='Cor Primária' onChangeText={setCorPrimaria} value={corPrimaria}/>
+      <TextInput placeholder='Cor  Secundária' onChangeText={setCorSecundaria} value={corSecundaria}/>
+      <TextInput placeholder='População' onChangeText={setPopulacao} value={populacao}/>
+      <TextInput placeholder='Assentamentos Humanos' onChangeText={setAssentamentos} value={assentamentos}/>
+      <TextInput placeholder='Galáxia' onChangeText={setGalaxia} value={galaxia}/>
+      <TextInput placeholder='Sistema Solar' onChangeText={setSistemaSolar} value={sistemaSolar}/>
+      <TextInput placeholder='Coordenadas' onChangeText={setCoordenadas} value={coordenadas}/>
+      <TextInput placeholder='Nome do Governante' onChangeText={setNomeGovernante} value={nomeGovernante}/>
+      <TextInput placeholder='Título' onChangeText={setTitulo} value={titulo}/>
 
-    <TouchableOpacity style={styles.button} onPress={createPlanet}>
-      <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
-    </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={handlePlanetAction}>
+        <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
+      </TouchableOpacity>
 
-    {isUpdate && (
-       <TouchableOpacity onPress={clearInputs}>
-       <Text>Cancelar Edição</Text>
-     </TouchableOpacity>
-    )} 
+      {isUpdate && (
+        <TouchableOpacity onPress={clearInputs}>
+          <Text>Cancelar Edição</Text>
+        </TouchableOpacity>
+      )}
     </View>
-  )
+  );
 }

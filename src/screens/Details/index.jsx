@@ -3,13 +3,11 @@ import styles from './styles';
 import PlanetClass from '../../models/planet';
 import { useNavigation } from "@react-navigation/native";
 import Title from '../../components/Title';
-import planetList from '../../models/planetList';
 import list from '../../models/planetList';
 
 export default function Details({ route }) {
   const navigation = useNavigation();
   const { data } = route.params;
-  // console.log("Hereee", data);
 
   const editPlanet = () =>{
     navigation.navigate("Home", { planet: data, edit: true});
