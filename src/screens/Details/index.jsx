@@ -29,23 +29,34 @@ export default function Details({ route }) {
         <Text>Selecione um planeta para exibir seus detalhes</Text>
       )}
 
-    <View>
-    <Text>{data.nomePlaneta}</Text>
-    <Text>{data.dataConquista}</Text>
-    <Text>{data.corPrimaria}</Text>
-    <Text>{data.corSecundaria}</Text>
-    </View>
+    <View style={styles.cardDetails}>
+      <View style={styles.card}>
+      <Text style={styles.textTitle}>{data.nomePlaneta}</Text>
+    <Text style={styles.text}>Data Conquista: {data.dataConquista}</Text>
+    <Text style={styles.text}>Cor Pimária: {data.corPrimaria}</Text>
+    <Text style={styles.text}>Cor Secundária: {data.corSecundaria}</Text>
+    <Text style={styles.text}>População: {data.populacao}</Text>
+    <Text style={styles.text}>Recursos Naturais: {data.recursosNaturais}</Text>
+    <Text style={styles.text}>Assentamentos Humanos: {data.numeroAssentamentos}</Text>
+    <Text style={styles.text}>Galáxia: {data.galaxia}</Text>
+    <Text style={styles.text}>Sistema Solar: {data.sistemaSolar}</Text>
+    <Text style={styles.text}>Coordenadas: {data.coordenadas}</Text>
+    <Text style={styles.text}>Nome Governante: {data.nomeGovernante}</Text>
+    <Text style={styles.text}>Título: {data.titulo}</Text>
 
-    <View>
-      <TouchableOpacity style={styles.editButton} onPress={editPlanet}>
+        <View style={styles.planetAction}>
+        <TouchableOpacity style={styles.editButton} onPress={editPlanet}>
         <Text>Editar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.deleteButton} onPress={deletePlanet}>
         <Text>Remover</Text>
       </TouchableOpacity>
+        </View>
+    
+      </View>
+    
     </View>
-      
     </View>
   )
 }
