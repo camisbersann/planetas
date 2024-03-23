@@ -5,8 +5,6 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "transparent",
-        backgroundImage: 'url("../../assets/planetas-do-sistema-solar-no-universo.jpg")'
     },
 
     planetInput: {
@@ -21,6 +19,6 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: "#E6CCEF",
         borderRadius: 8,
-    }
+    },
 });
 export default styles;

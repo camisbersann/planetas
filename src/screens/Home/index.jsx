@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
 import Inputs from '../../components/Inputs';
@@ -77,6 +77,8 @@ export default function Home({ route }) {
   }
 
   return (
+    <ImageBackground source={require('../../../assets/sistemaSolar.jpg')} style={styles.container}>
+
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta"} />
 
@@ -102,5 +104,6 @@ export default function Home({ route }) {
         </TouchableOpacity>
       )}
     </View>
+    </ImageBackground>
   );
 }
