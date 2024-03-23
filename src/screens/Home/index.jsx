@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ImageBackground, Pressable, Platform } from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
 import Inputs from '../../components/Inputs';
 import PlanetClass from '../../models/planet';
 import list from '../../models/planetList';
 import { useNavigation } from "@react-navigation/native";
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function Home({ route }) {
   const navigation = useNavigation();
@@ -27,6 +28,28 @@ export default function Home({ route }) {
   const [nomeGovernante, setNomeGovernante] = useState('');
   const [titulo, setTitulo] = useState('');
   const [isUpdate, setIsUpdate] = useState(edit);
+  const [date, setDate] = useState(new Date());
+  const [showPicker, setShowPicker] = useState(false);
+
+  const toggleDatepicker = () => {
+    setShowPicker(!showPicker);
+  };
+
+  const onChange= ({ type }, selectDate) => {
+    if(type == "set"){
+      const currentDate = selectDate;
+      setDate(currentDate);
+
+      if(Platform.OS === "android"){
+        toggleDatepicker();
+        setDataConquista(currentDate.toDateString());
+      }
+
+    } else {
+      toggleDatepicker();
+    }
+  };
+
 
   useEffect(() => {
     if (edit) {
@@ -83,7 +106,18 @@ export default function Home({ route }) {
       <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta"} />
 
       <TextInput style={styles.planetInput} placeholder='Nome do Planeta' onChangeText={setNomePlaneta} value={nomePlaneta}/>
-      <TextInput style={styles.planetInput} placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista}/>
+
+      {showPicker && (
+        <DateTimePicker mode="date" display='spinner' value={date} onChange={onChange}/>
+      )}
+
+        {!showPicker && (
+          <Pressable onPress={toggleDatepicker}>
+          <TextInput style={styles.planetInput} placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista} editable={false}/>
+          </Pressable>
+        )}
+      
+      
       <TextInput style={styles.planetInput} placeholder='Cor Primária' onChangeText={setCorPrimaria} value={corPrimaria}/>
       <TextInput style={styles.planetInput} placeholder='Cor  Secundária' onChangeText={setCorSecundaria} value={corSecundaria}/>
       <TextInput style={styles.planetInput} placeholder='População' onChangeText={setPopulacao} value={populacao}/>
