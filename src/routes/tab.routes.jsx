@@ -19,11 +19,11 @@ const TabRoutes = () => {
           <Feather
             name="clipboard"
             size={24}
-            color={focused ? "#9370DB" : "#A9A9A9"}
+            color={focused ? "#8A2BE2" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Registrar Planeta",
-        tabBarActiveTintColor: "#9370DB",
+        tabBarActiveTintColor: "#8A2BE2",
         tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
@@ -33,11 +33,11 @@ const TabRoutes = () => {
           <Feather
             name="moon"
             size={24}
-            color={focused ? "#9370DB" : "#A9A9A9"}
+            color={focused ? "#8A2BE2" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Planetas",
-        tabBarActiveTintColor: "#9370DB",
+        tabBarActiveTintColor: "#8A2BE2",
         tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
@@ -47,11 +47,11 @@ const TabRoutes = () => {
           <Feather
             name="info"
             size={24}
-            color={focused ? "#9370DB" : "#A9A9A9"}
+            color={focused ? "#8A2BE2" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Detalhes",
-        tabBarActiveTintColor: "#9370DB",
+        tabBarActiveTintColor: "#8A2BE2",
         tabBarInactiveTintColor: "#A9A9A9",
       }}/>
 
@@ -64,11 +64,11 @@ const TabRoutes = () => {
           <Feather
             name="user"
             size={24}
-            color={focused ? "#9370DB" : "#A9A9A9"}
+            color={focused ? "#8A2BE2" : "#A9A9A9"}
           />
         ),
         tabBarLabel: "Desenvolvedor",
-        tabBarActiveTintColor: "#9370DB",
+        tabBarActiveTintColor: "#8A2BE2",
         tabBarInactiveTintColor: "#A9A9A9",
       }}/>
     </Tab.Navigator>
