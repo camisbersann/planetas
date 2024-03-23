@@ -4,28 +4,45 @@ import Title from "../../components/Title";
 import TouchableButton from "../../components/TouchableButton";
 import PlanetList from "../../models/planetList";
 import { Planet } from "../../data/Planet";
-import { useNavigation } from "@react-navigation/native";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
+import { useEffect, useState } from "react";
+import list from "../../models/planetList";
 
-export default function PlanetsRegistered({ route }) {
+export default function PlanetsRegistered() {
   const navigation = useNavigation();
-  const { allPlanets } = route.params;
+  const isFocused = useIsFocused();
+  const [allPlanets, setAllPlanets] = useState([]);
 
-  console.log("AQUIIIIIIIIIII", allPlanets);
-
-  //list.addPlanet(Planet)
+  useEffect(() => {
+    if(isFocused) {
+      const planets = list.getAll();
+      setAllPlanets(planets);
+    }
+  }, [isFocused]);
 
   return (
     <View style={styles.container}>
-      <View>
-        {allPlanets.map((onePlanet) => (
-          <TouchableOpacity
-            key={onePlanet.id}
-            onPress={() => navigation.navigate("Details", { data: onePlanet })}
-          >
-            <Text>{onePlanet.nomePlaneta}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      <Title title="Planetas"/>
+
+      {allPlanets.length > 0 ? (
+        <View style= {styles.planetList}>
+          {allPlanets.map((planet) => (
+            <View key={planet.id} style={styles.planetItem}>
+              <View>
+                <Text style={styles.planetName}>{planet.nomePlaneta}</Text>
+              </View>
+
+              <View style={styles.planetActions}>
+                <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate("Details", {data: planet})}>
+                  <Text>Detalhes</Text>
+                </TouchableOpacity>
+              </View>
+              </View>
+          ))}
+          </View>
+      ) : (
+        <Text>Não há planetas cadastrados</Text>
+      )}
     </View>
   );
 }
