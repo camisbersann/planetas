@@ -21,10 +21,10 @@ export default function Details({ route }) {
 
   return (
     <View style={styles.container}>
-      <Title title="Detalhes"/>
+      <Text style={styles.title}>Detalhes</Text>
 
       {data? (
-        <Text>Detalhes do planeta</Text>
+        <Text style={styles.textDetails}>Detalhes do planeta</Text>
       ) : (
         <Text>Selecione um planeta para exibir seus detalhes</Text>
       )}

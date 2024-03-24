@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         alignItems: "center",
-        marginTop: 50,
+        backgroundColor: "#483D8B",
+        width: "auto"
     },
 
     editButton: {
@@ -13,6 +14,17 @@ const styles = StyleSheet.create({
         backgroundColor: "#9F8DB5",
         alignItems:"center",
         width: 100,
+    },
+
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
+        color: "#fff",
+        marginTop: 20,
+    },
+
+    textDetails: {
+        color:"#fff",
     },
 
     deleteButton: {
