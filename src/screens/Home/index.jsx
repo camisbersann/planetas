@@ -105,7 +105,7 @@ export default function Home({ route }) {
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta"} />
 
-      <TextInput style={styles.planetInput} placeholder='Nome do Planeta' onChangeText={setNomePlaneta} value={nomePlaneta}/>
+      <TextInput style={styles.planetInput} placeholder='Nome do Planeta'placeholderTextColor={'#ffff'} onChangeText={setNomePlaneta} value={nomePlaneta} keyboardType='email'/>
 
       {showPicker && (
         <DateTimePicker mode="date" display='spinner' value={date} onChange={onChange}/>
@@ -113,20 +113,20 @@ export default function Home({ route }) {
 
         {!showPicker && (
           <Pressable onPress={toggleDatepicker}>
-          <TextInput style={styles.planetInput} placeholder='Data da Conquista' onChangeText={setDataConquista} value={dataConquista} editable={false}/>
+          <TextInput style={styles.planetInput} placeholder='Data da Conquista' placeholderTextColor={'#ffff'} onChangeText={setDataConquista} value={dataConquista} editable={false}/>
           </Pressable>
         )}
       
       
-      <TextInput style={styles.planetInput} placeholder='Cor Primária' onChangeText={setCorPrimaria} value={corPrimaria}/>
-      <TextInput style={styles.planetInput} placeholder='Cor  Secundária' onChangeText={setCorSecundaria} value={corSecundaria}/>
-      <TextInput style={styles.planetInput} placeholder='População' onChangeText={setPopulacao} value={populacao}/>
-      <TextInput style={styles.planetInput} placeholder='Assentamentos Humanos' onChangeText={setAssentamentos} value={assentamentos}/>
-      <TextInput style={styles.planetInput} placeholder='Galáxia' onChangeText={setGalaxia} value={galaxia}/>
-      <TextInput style={styles.planetInput} placeholder='Sistema Solar' onChangeText={setSistemaSolar} value={sistemaSolar}/>
-      <TextInput style={styles.planetInput} placeholder='Coordenadas' onChangeText={setCoordenadas} value={coordenadas}/>
-      <TextInput style={styles.planetInput} placeholder='Nome do Governante' onChangeText={setNomeGovernante} value={nomeGovernante}/>
-      <TextInput style={styles.planetInput} placeholder='Título' onChangeText={setTitulo} value={titulo}/>
+      <TextInput style={styles.planetInput} placeholder='Cor Primária'placeholderTextColor={'#ffff'} onChangeText={setCorPrimaria} value={corPrimaria} keyboardType='email'/>
+      <TextInput style={styles.planetInput} placeholder='Cor  Secundária' placeholderTextColor={'#ffff'} onChangeText={setCorSecundaria} value={corSecundaria} keyboardType='email'/>
+      <TextInput style={styles.planetInput} placeholder='População' placeholderTextColor={'#ffff'} onChangeText={setPopulacao} value={populacao} keyboardType='numeric'/>
+      <TextInput style={styles.planetInput} placeholder='Assentamentos Humanos' placeholderTextColor={'#ffff'} onChangeText={setAssentamentos} value={assentamentos} keyboardType='numeric'/>
+      <TextInput style={styles.planetInput} placeholder='Galáxia' placeholderTextColor={'#ffff'} onChangeText={setGalaxia} value={galaxia} keyboardType='email'/>
+      <TextInput style={styles.planetInput} placeholder='Sistema Solar' placeholderTextColor={'#ffff'} onChangeText={setSistemaSolar} value={sistemaSolar} keyboardType='email'/>
+      <TextInput style={styles.planetInput} placeholder='Coordenadas' placeholderTextColor={'#ffff'} onChangeText={setCoordenadas} value={coordenadas} keyboardType='numeric'/>
+      <TextInput style={styles.planetInput} placeholder='Nome do Governante' placeholderTextColor={'#ffff'} onChangeText={setNomeGovernante} value={nomeGovernante} keyboardType='email'/>
+      <TextInput style={styles.planetInput} placeholder='Título' placeholderTextColor={'#ffff'} onChangeText={setTitulo} value={titulo} keyboardType='email'/>
 
       <TouchableOpacity style={styles.button} onPress={handlePlanetAction}>
         <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>

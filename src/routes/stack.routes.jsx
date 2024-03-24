@@ -12,7 +12,7 @@ const StackRoutes = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShow: false }}>
       <Stack.Screen name="Planetas Registrados" component={PlanetsRegistered}/>
-        <Stack.Screen name="Home" component={Home}/>/
+        <Stack.Screen name="Home" component={Home}/>
       <Stack.Screen name="Desenvolvedor" component={Developer} />
     </Stack.Navigator>
   );

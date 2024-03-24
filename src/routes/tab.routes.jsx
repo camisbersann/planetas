@@ -15,6 +15,7 @@ const TabRoutes = () => {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={Home} 
       options={{
+  
         tabBarIcon: ({ focused }) => (
           <Feather
             name="clipboard"

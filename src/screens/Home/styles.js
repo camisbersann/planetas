@@ -9,9 +9,10 @@ const styles = StyleSheet.create({
 
     planetInput: {
         padding: 8,
-        borderBottomColor: "black",
+        borderBottomColor: "white",
         borderBottomWidth: 1,
         marginTop: 5,
+        color:"#ffff",
     },
 
     button: {
