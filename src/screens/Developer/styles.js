@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
 
     name:{
         fontSize: 22,
-        color: "#696969",
+        color: "#0000CD",
         fontWeight: "600",
         textAlign: "center",
     },
 
     developerInfo:{
         fontSize: 16,
-        color: "#696969",
+        color: "#0000CD",
         fontWeight: "600",
         textAlign: "center",
     },
@@ -45,5 +45,13 @@ const styles = StyleSheet.create({
     borderBottomColor:'#000',
     marginTop: 20,
     },
+
+    icons: {
+        flexDirection: "row",
+        padding: 30,
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 10
+    }
 });
 export default styles;

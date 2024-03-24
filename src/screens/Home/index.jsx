@@ -100,7 +100,7 @@ export default function Home({ route }) {
   }
 
   return (
-    <ImageBackground source={require('../../../assets/sistemaSolar.jpg')} style={styles.container}>
+    <ImageBackground source={require('../../../assets/sistemaSolar01.jpg')} style={styles.container}>
 
     <View style={styles.container}>
       <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta"} />
