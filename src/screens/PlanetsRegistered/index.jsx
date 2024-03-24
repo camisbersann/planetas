@@ -22,7 +22,7 @@ export default function PlanetsRegistered() {
 
   return (
     <View style={styles.container}>
-      <Title title="Planetas"/>
+      <Text style={styles.title}>Planetas 🪐</Text>
 
       {allPlanets.length > 0 ? (
         <View style= {styles.planetList}>
@@ -30,13 +30,15 @@ export default function PlanetsRegistered() {
             <View key={planet.id} style={styles.planetItem}>
               <View>
                 <Text style={styles.planetName}>{planet.nomePlaneta}</Text>
-              </View>
 
-              <View style={styles.planetActions}>
+                <View style={styles.planetActions}>
                 <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate("Details", {data: planet})}>
-                  <Text>Detalhes</Text>
+                  <Text style={styles.textDetails}>Detalhes</Text>
                 </TouchableOpacity>
               </View>
+              </View>
+
+             
               </View>
           ))}
           </View>
