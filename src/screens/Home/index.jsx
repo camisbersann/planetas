@@ -143,7 +143,7 @@ export default function Home({ route }) {
       </TouchableOpacity>
 
       {isUpdate && (
-        <TouchableOpacity onPress={clearInputs}>
+        <TouchableOpacity style={styles.button} onPress={clearInputs}>
           <Text>Cancelar Edição</Text>
         </TouchableOpacity>
       )}
