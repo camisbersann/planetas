@@ -45,7 +45,7 @@ class PlanetList {
 }
 
 const list = new PlanetList();
-const newPlanet = new PlanetClass(Planet.nomePlaneta, Planet.corPrimaria, Planet.corSecundaria, Planet.população, Planet.recursosNaturais, Planet.numeroAssentamentos, Planet.galáxia, Planet.sistemaSolar, Planet.coodernadas, Planet.nomeGovenador, Planet.título)
+const newPlanet = new PlanetClass(Planet.nomePlaneta, Planet.dataConquista, Planet.corPrimaria, Planet.corSecundaria, Planet.população, Planet.recursosNaturais, Planet.numeroAssentamentos, Planet.galáxia, Planet.sistemaSolar, Planet.coodernadas, Planet.nomeGovenador, Planet.título)
 
 list.addPlanet(newPlanet);
 

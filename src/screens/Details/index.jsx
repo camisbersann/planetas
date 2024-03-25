@@ -4,6 +4,8 @@ import PlanetClass from '../../models/planet';
 import { useNavigation } from "@react-navigation/native";
 import Title from '../../components/Title';
 import list from '../../models/planetList';
+import { Ionicons } from '@expo/vector-icons';
+
 
 export default function Details({ route }) {
   const navigation = useNavigation();
@@ -46,11 +48,11 @@ export default function Details({ route }) {
 
         <View style={styles.planetAction}>
         <TouchableOpacity style={styles.editButton} onPress={editPlanet}>
-        <Text>Editar</Text>
+        <Text>Editar <Ionicons name="pencil-outline" size={15}></Ionicons></Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.deleteButton} onPress={deletePlanet}>
-        <Text>Remover</Text>
+        <Text>Remover <Ionicons name="trash" size={15}></Ionicons></Text>
       </TouchableOpacity>
         </View>
     

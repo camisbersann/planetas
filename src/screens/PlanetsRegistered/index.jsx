@@ -7,6 +7,7 @@ import { Planet } from "../../data/Planet";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import list from "../../models/planetList";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function PlanetsRegistered() {
   const navigation = useNavigation();
@@ -33,7 +34,7 @@ export default function PlanetsRegistered() {
 
                 <View style={styles.planetActions}>
                 <TouchableOpacity style={styles.detailsButton} onPress={() => navigation.navigate("Details", {data: planet})}>
-                  <Text style={styles.textDetails}>Detalhes</Text>
+                  <Text style={styles.textDetails}>Detalhes <Ionicons name="clipboard" size={13}></Ionicons></Text>
                 </TouchableOpacity>
               </View>
               </View>

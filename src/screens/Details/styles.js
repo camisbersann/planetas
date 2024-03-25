@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 
     textDetails: {
         color:"#fff",
+        
     },
 
     deleteButton: {
@@ -58,6 +59,6 @@ const styles = StyleSheet.create({
         fontWeight: "400",
         textAlign: "center",
         marginBottom: 10,
-    }
+    },
 });
 export default styles;
