@@ -8,11 +8,14 @@ const styles = StyleSheet.create({
     },
 
     planetInput: {
-        padding: 8,
-        borderBottomColor: "white",
-        borderBottomWidth: 1,
-        marginTop: 5,
+        padding: 5,
+        borderColor: "#EE82EE",
+        borderWidth: 1,
+        marginBottom: 10,
         color:"#ffff",
+        width: 250,
+        borderRadius: 5,
+        
     },
 
     button: {
@@ -20,6 +23,7 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: "#E6CCEF",
         borderRadius: 8,
+        marginBottom: 20,
     },
 });
 export default styles;
