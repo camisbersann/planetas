@@ -44,16 +44,7 @@ const TabRoutes = () => {
 
       <Tab.Screen name="Details" component={Details} 
       options={{
-        tabBarIcon: ({ focused }) => (
-          <Feather
-            name="info"
-            size={24}
-            color={focused ? "#8A2BE2" : "#A9A9A9"}
-          />
-        ),
-        tabBarLabel: "Detalhes",
-        tabBarActiveTintColor: "#8A2BE2",
-        tabBarInactiveTintColor: "#A9A9A9",
+      tabBarItemStyle: {display: "none"}
       }}/>
 
     

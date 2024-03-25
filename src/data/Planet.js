@@ -2,7 +2,7 @@ export const Planet =
     {
         id: "1",
         nomePlaneta: "Marte",
-        dataConquista: "08/12/2040",
+        dataConquista: "2040-12-08",
         corPrimaria: "#8b0000",
         corSecundaria: "#964b00",
         população: 0,
