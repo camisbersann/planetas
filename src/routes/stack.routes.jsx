@@ -1,6 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import PlanetsRegistered from "../screens/PlanetsRegistered";
-import Details from "../screens/Details";
 import Home from "../screens/Home";
 import Developer from "../screens/Developer";
 
