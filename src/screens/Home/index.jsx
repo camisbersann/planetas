@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import PlaceHolder from '../../components/PlaceHolder';
 
+
 export default function Home({ route }) {
   const navigation = useNavigation();
 
@@ -29,6 +30,7 @@ export default function Home({ route }) {
   const [nomeGovernante, setNomeGovernante] = useState('');
   const [titulo, setTitulo] = useState('');
   const [isUpdate, setIsUpdate] = useState(edit);
+  
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
 
@@ -70,7 +72,7 @@ export default function Home({ route }) {
     } else {
       clearInputs();
     }
-  }, [planetParams, edit]);
+  }, [planetParams, edit]);     
 
   const handlePlanetAction = () => {
     if (isUpdate) {
@@ -111,7 +113,7 @@ export default function Home({ route }) {
       <TextInput style={styles.planetInput} onChangeText={setNomePlaneta} value={nomePlaneta} keyboardType='email-address'/>
 
       {showPicker && (
-        <DateTimePicker mode="date" display='spinner' value={date} onChange={onChange}/>
+        <DateTimePicker mode="date" display='spinner' value={date} onChange={onChange} dateFormat='dd/mm/yyyy'/>
       )}
 
         {!showPicker && (
