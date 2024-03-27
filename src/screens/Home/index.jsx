@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput, ImageBackground, Pressable, Platform, ScrollView } from 'react-native';
 import styles from './styles';
 import Title from '../../components/Title';
-import Inputs from '../../components/Inputs';
 import PlanetClass from '../../models/planet';
 import list from '../../models/planetList';
 import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import PlaceHolder from '../../components/PlaceHolder';
+import SendMessage from '../../components/SendMessage';
 
 
 export default function Home({ route }) {
@@ -75,15 +75,23 @@ export default function Home({ route }) {
   }, [planetParams, edit]);     
 
   const handlePlanetAction = () => {
-    if (isUpdate) {
-      list.update(planetParams.id, nomePlaneta, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
-      clearInputs();
-    } else {
-      const newPlanet = new PlanetClass(nomePlaneta, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
-      list.addPlanet(newPlanet);
-      clearInputs();
+    let mayAdd = verificaton();
+
+    if(mayAdd){
+      if (isUpdate) {
+        list.update(planetParams.id, nomePlaneta, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
+        clearInputs();
+      } else {
+        const newPlanet = new PlanetClass(nomePlaneta, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, assentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo);
+        list.addPlanet(newPlanet);
+        clearInputs();
+      }
+      navigation.navigate("PlanetsRegistered");
+    } else{
+      return;
     }
-    navigation.navigate("PlanetsRegistered");
+    
+    
   };
 
   const clearInputs = () => {
@@ -101,6 +109,73 @@ export default function Home({ route }) {
     setNomeGovernante('');
     setTitulo('');
   }
+
+  const verificaton = () =>{
+    let errors = [];
+
+    if(!nomePlaneta || nomePlaneta.length < 3){
+      errors.push("Nome inválido, digite o nome do planeta com mais de três caracteres");
+    }
+
+    if(!dataConquista || dataConquista < new Date()){
+      errors.push("Digite uma data válida")
+    }
+
+    if(!corPrimaria){
+      errors.push("Digite a cor primária")
+    }
+
+    if(!corSecundaria){
+      errors.push("Digite a cor secundária")
+    }
+
+    if(!recursosNaturais){
+      errors.push("Digite os recursos naturais")
+    }
+
+    if(!populacao){
+      errors.push("Digite a população do planeta")
+    }
+
+    if(!assentamentos){
+      errors.push("Digite o número de assentamentos humanos")
+    }
+
+    if(!galaxia){
+      errors.push("Digite uma galáxia")
+    }
+
+    if(!sistemaSolar){
+      errors.push("Digite o sistema solar")
+    }
+
+    if(!coordenadas){
+      errors.push("Digite as coordenadas do planeta")
+    }
+
+    if(!nomeGovernante || nomeGovernante.length < 3){
+      errors.push("Nome do governate inválido, digite o nome do governante com mais de três caracteres");
+    }
+
+    if(!titulo){
+      errors.push("Digite um título")
+    }
+
+    if(errors.length > 0){
+      alert(errors.join("\n"));
+      return false;
+    }else {
+      return true;
+    }
+  }
+
+
+
+
+
+
+
+
 
   return (
     <ImageBackground source={require('../../../assets/galaxia01.jpeg')} style={styles.container}>
@@ -123,8 +198,10 @@ export default function Home({ route }) {
           </Pressable>
         )}
       
-      <TextInput style={styles.planetInput} placeholder='Cor Primária'placeholderTextColor={'#ffff'} onChangeText={setCorPrimaria} value={corPrimaria} keyboardType='email-address'/>
-      <TextInput style={styles.planetInput} placeholder='Cor  Secundária' placeholderTextColor={'#ffff'} onChangeText={setCorSecundaria} value={corSecundaria} keyboardType='email-address'/>
+      <PlaceHolder placeHolder={"Cor Primária"}/>
+      <TextInput style={styles.planetInput} onChangeText={setCorPrimaria} value={corPrimaria} keyboardType='email-address'/>
+      <PlaceHolder placeHolder={"Cor Secundária"}/>
+      <TextInput style={styles.planetInput} onChangeText={setCorSecundaria} value={corSecundaria} keyboardType='email-address'/>
       <PlaceHolder placeHolder={"População"}/>
       <TextInput style={styles.planetInput} onChangeText={setPopulacao} value={populacao} keyboardType='numeric'/>
       <PlaceHolder placeHolder={"Humanos"}/>
