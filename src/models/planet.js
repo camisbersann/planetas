@@ -1,3 +1,5 @@
+ import { format } from 'date-fns';
+ 
  export default class PlanetClass {
     constructor(nomePlaneta, dataConquista, corPrimaria, corSecundaria, populacao, recursosNaturais, numeroAssentamentos, galaxia, sistemaSolar, coordenadas, nomeGovernante, titulo) {
         this.id = this.gerarId();
@@ -17,5 +19,13 @@
 
     gerarId(){
         return Math.floor(Math.random() * 1000);
+    }
+
+    getDataConquistaPtBR(){
+        if(!this.dataConquista){
+            return 'Data não definida';
+        }
+
+        return format(new Date(this.dataConquista), "dd/MM/yyyy");
     }
 }

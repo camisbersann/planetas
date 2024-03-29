@@ -16,7 +16,7 @@ import list from "../../models/planetList";
 import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import PlaceHolder from "../../components/PlaceHolder";
-import SendMessage from "../../components/SendMessage";
+
 
 export default function Home({ route }) {
   const navigation = useNavigation();
@@ -25,7 +25,7 @@ export default function Home({ route }) {
   const planetParams = route?.params?.planet;
   const edit = route?.params?.edit;
 
-  console.log("tela de edição", planetParams)
+  // console.log("tela de edição", planetParams)
 
   const [nomePlaneta, setNomePlaneta] = useState("");
   const [dataConquista, setDataConquista] = useState("");
@@ -118,8 +118,11 @@ export default function Home({ route }) {
           nomeGovernante,
           titulo
         );
+       
         list.addPlanet(newPlanet);
         clearInputs();
+        newPlanet.getDataConquistaPtBR();
+        console.log(newPlanet.getDataConquistaPtBR());
       }
       navigation.navigate("PlanetsRegistered");
     } else {
@@ -229,7 +232,7 @@ export default function Home({ route }) {
               display="spinner"
               value={date}
               onChange={onChange}
-              dateFormat="dd/mm/yyyy"
+              dateFormat="dd/MM/yyyy"
             />
           )}
 
@@ -244,7 +247,7 @@ export default function Home({ route }) {
               />
             </Pressable>
           )}
-
+  
           <PlaceHolder placeHolder={"Cor Primária"} />
           <TextInput
             style={styles.planetInput}
@@ -266,13 +269,22 @@ export default function Home({ route }) {
             value={populacao}
             keyboardType="numeric"
           />
-          <PlaceHolder placeHolder={"Humanos"} />
+          <PlaceHolder placeHolder={"Número de assentamentos Humanos"} />
           <TextInput
             style={styles.planetInput}
             onChangeText={setAssentamentos}
             value={assentamentos}
             keyboardType="numeric"
           />
+
+          <PlaceHolder placeHolder={"Recursos Naturais"} />
+          <TextInput
+            style={styles.planetInput}
+            onChangeText={setRecursosNaturais}
+            value={recursosNaturais}
+            keyboardType="email-address"
+          />
+
           <PlaceHolder placeHolder={"Galáxia"} />
           <TextInput
             style={styles.planetInput}
