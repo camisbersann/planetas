@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Title from "../../components/Title";
 import list from "../../models/planetList";
 import { Ionicons } from "@expo/vector-icons";
+import { getDate } from "date-fns";
 
 export default function Details({ route }) {
   const navigation = useNavigation();
@@ -20,6 +21,7 @@ export default function Details({ route }) {
   };
 
   return (
+   
     <View style={styles.container}>
       <Text style={styles.title}>Detalhes</Text>
 
@@ -36,7 +38,7 @@ export default function Details({ route }) {
 
           <View style={styles.caixinha}>
             <Text style={styles.text}>Data Conquista:</Text>
-            <Text style={styles.subtext}>{data.dataConquista}</Text>
+            <Text style={styles.subtext}>{data instanceof PlanetClass && data.getDataConquistaPtBR()}</Text>
           </View>
 
           <View style={styles.caixinha}>

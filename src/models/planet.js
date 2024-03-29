@@ -26,6 +26,11 @@
             return 'Data não definida';
         }
 
+        const data = new Date(this.dataConquista);
+
+        if(isNaN(data.getTime())){
+            return 'Data iválida'
+        }
         return format(new Date(this.dataConquista), "dd/MM/yyyy");
     }
 }
