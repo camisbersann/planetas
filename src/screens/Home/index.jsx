@@ -16,6 +16,7 @@ import list from "../../models/planetList";
 import { useNavigation } from "@react-navigation/native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import PlaceHolder from "../../components/PlaceHolder";
+import CardHome from "../../components/CardHome";
 
 
 export default function Home({ route }) {
@@ -216,6 +217,7 @@ export default function Home({ route }) {
     >
       <ScrollView>
         <View style={styles.container}>
+          <CardHome/>
           <Title title={isUpdate ? "Editar Planeta" : "Cadastrar Planeta 🪐"} />
 
           <PlaceHolder placeHolder={"Nome do planeta"} />

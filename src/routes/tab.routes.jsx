@@ -15,7 +15,15 @@ const TabRoutes = () => {
     <Tab.Navigator>
       <Tab.Screen name="Home" component={Home} 
       options={{
-  
+        title: "Olá Conquistador!",
+        headerStyle: {
+          backgroundColor: "#000",
+        },
+        headerTintColor: "#EE82EE",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerTitleAlign: "left",
         tabBarIcon: ({ focused }) => (
           <Feather
             name="clipboard"
