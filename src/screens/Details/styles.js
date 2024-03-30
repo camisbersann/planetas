@@ -40,6 +40,8 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "#D3D3D3",
     borderRadius: 8,
+    width: 400,
+    marginBottom: 20,
   },
 
   planetAction: {
@@ -61,14 +63,16 @@ const styles = StyleSheet.create({
 
   textTitle: {
     fontSize: 24,
-    fontWeight: "400",
+    fontWeight: "300",
     textAlign: "center",
-    marginBottom: 10,
+    marginBottom: 20,
   },
 
   caixinha: {
     display: "flex",
     flexDirection: "row",
+    marginBottom: 10,
+    flexWrap: 'wrap'
   },
 });
 export default styles;

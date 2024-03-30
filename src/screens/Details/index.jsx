@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import styles from "./styles";
 import PlanetClass from "../../models/planet";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +21,7 @@ export default function Details({ route }) {
 
   return (
    
+    <ScrollView>
     <View style={styles.container}>
       <Text style={styles.title}>Detalhes</Text>
 
@@ -56,8 +57,8 @@ export default function Details({ route }) {
           </View>
           
           <View style={styles.caixinha}>
-          <Text style={styles.text}>Recursos Naturais:</Text>
-          <Text>{data.recursosNaturais}</Text>
+          <Text style={styles.text} >Recursos Naturais: </Text>
+          <Text >{data.recursosNaturais}</Text>
           </View>
           
           <View style={styles.caixinha}>
@@ -110,5 +111,6 @@ export default function Details({ route }) {
         </View>
       </View>
     </View>
+    </ScrollView>
   );
 }
