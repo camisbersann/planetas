@@ -3,8 +3,8 @@ import styles from './styles';
 
 const CardHome = () => {
   return (
-    <View>
-      <Text style={styles.card}>
+    <View style={styles.card}>
+      <Text style={styles.text}>
         Bem-vindo ao nosso emocionante aplicativo de conquistador de planetas!
         Aqui, você pode mergulhar em uma jornada cósmica única, onde cada estrela esconde um mundo esperando para ser descoberto e colonizado.
         Com este aplicativo, você pode facilmente cadastrar novos planetas, explorar os detalhes fascinantes de cada um deles, 
