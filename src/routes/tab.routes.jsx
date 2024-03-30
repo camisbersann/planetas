@@ -38,6 +38,11 @@ const TabRoutes = () => {
 
       <Tab.Screen name="PlanetsRegistered" component={PlanetsRegistered} 
       options={{
+        title:"Planetas conquistados",
+        headerStyle: {
+          backgroundColor:"#A9A9A9",
+        },
+        headerTitleAlign: "center",
         tabBarIcon: ({ focused }) => (
           <Feather
             name="moon"
@@ -60,6 +65,11 @@ const TabRoutes = () => {
 
       <Tab.Screen name="Desenvolvedor" component={Developer}
        options={{
+        title:"Desenvolvedora",
+        headerStyle: {
+          backgroundColor:"#A9A9A9",
+        },
+        headerTitleAlign: "center",
         tabBarIcon: ({ focused }) => (
           <Feather
             name="user"
