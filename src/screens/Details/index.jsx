@@ -21,7 +21,7 @@ export default function Details({ route }) {
 
   return (
    
-    <ScrollView>
+   
     <View style={styles.container}>
       <Text style={styles.title}>Detalhes</Text>
 
@@ -111,6 +111,6 @@ export default function Details({ route }) {
         </View>
       </View>
     </View>
-    </ScrollView>
+   
   );
 }

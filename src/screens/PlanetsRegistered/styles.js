@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
     planetItem: {
         backgroundColor:"#4B0082",
-        width: 200,
+        width: 300,
         padding: 20,
         borderRadius: 10,
         marginBottom: 20,
@@ -25,15 +25,16 @@ const styles = StyleSheet.create({
 
     planetName: {
         color: "#fff",
-        fontSize: 20,
+        fontSize: 25,
         textAlign: "center",
         fontWeight: "300",
+        marginBottom: 20,
     },
 
     detailsButton: {
        backgroundColor: "#9370DB",
        padding: 10,
-       width: 100,
+       width: 140,
        borderRadius: 10,
       marginTop: 15,
     },
@@ -49,6 +50,22 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         
     },
+
+    caixinha: {
+        display: "flex",
+        flexDirection: "row",
+      },
+
+     text: {
+        fontSize: 16,
+        marginBottom: 12,
+        fontWeight: "bold",
+        color:"#fff",
+    },
+
+    info:{
+        color:"#fff",
+    }
     
 });
 export default styles;

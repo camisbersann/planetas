@@ -57,6 +57,7 @@ const TabRoutes = () => {
 
       <Tab.Screen name="Details" component={Details} 
       options={{
+        headerShown: false,
       tabBarItemStyle: {display: "none"}
       }}/>
 

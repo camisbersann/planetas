@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#483D8B",
     width: "auto",
+    
   },
 
   editButton: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     color: "#fff",
-    marginTop: 20,
+    marginTop: 50,
   },
 
   textDetails: {
