@@ -2,10 +2,9 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
 import PlanetClass from "../../models/planet";
 import { useNavigation } from "@react-navigation/native";
-import Title from "../../components/Title";
 import list from "../../models/planetList";
-import { Ionicons } from "@expo/vector-icons";
-import { getDate } from "date-fns";
+import { AntDesign } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 export default function Details({ route }) {
   const navigation = useNavigation();
@@ -95,7 +94,7 @@ export default function Details({ route }) {
           <View style={styles.planetAction}>
             <TouchableOpacity style={styles.editButton} onPress={editPlanet}>
               <Text>
-                Editar <Ionicons name="pencil-outline" size={15}></Ionicons>
+                Editar <AntDesign name="edit" size={15} color="black"></AntDesign>
               </Text>
             </TouchableOpacity>
 
@@ -104,7 +103,7 @@ export default function Details({ route }) {
               onPress={deletePlanet}
             >
               <Text>
-                Remover <Ionicons name="trash" size={15}></Ionicons>
+                Remover <FontAwesome5 name="trash" size={15} color="black"></FontAwesome5>
               </Text>
             </TouchableOpacity>
           </View>
