@@ -1,11 +1,15 @@
+//Importação necessária do React Native;
 import { View, Text, Image } from 'react-native';
+//Importação do estilo;
 import styles from './styles';
-import Title from '../../components/Title';
+//Importação dos dados do desenvolvedor;
 import { Desenvolvedor } from '../../data/Desenvolvedor';
+//Importação dos icones utilizados;
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
+//Definição do componente Developer;
 export default function Developer() {
 
   return (
