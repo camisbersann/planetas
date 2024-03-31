@@ -2,8 +2,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
 
 import Developer from "../screens/Developer";
-import StackRoutes from "./stack.routes";
-import { Planet } from "../data/Planet";
 import Home from "../screens/Home";
 import PlanetsRegistered from "../screens/PlanetsRegistered";
 import Details from "../screens/Details";
