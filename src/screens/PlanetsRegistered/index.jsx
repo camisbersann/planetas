@@ -1,21 +1,24 @@
+//Importação necessária do React Native;
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import styles from "./styles";
-import Title from "../../components/Title";
-import TouchableButton from "../../components/TouchableButton";
-import PlanetList from "../../models/planetList";
-import { Planet } from "../../data/Planet";
-import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+//Importação dos estilos;
+import styles from "./styles";
+//Importação dos hooks para navegação entre telas;
+import { useIsFocused, useNavigation } from "@react-navigation/native";
+//Impotação da classe;
 import list from "../../models/planetList";
-import { Ionicons } from "@expo/vector-icons";
+//Importação do ícone;
 import { FontAwesome5 } from '@expo/vector-icons';
 
-
+//Definição do componete PlanetsRegistered;
 export default function PlanetsRegistered() {
   const navigation = useNavigation();
   const isFocused = useIsFocused();
+
+  //Estado para amazenar todos os planetas;
   const [allPlanets, setAllPlanets] = useState([]);
 
+  //Atualiza a lista de palnetas quando a tela está em foco;
   useEffect(() => {
     if(isFocused) {
       const planets = list.getAll();
