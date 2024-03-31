@@ -115,9 +115,9 @@ export default function Home({ route }) {
           dataConquista,
           corPrimaria,
           corSecundaria,
-          populacao,
+          parseInt(populacao),
           recursosNaturais,
-          assentamentos,
+          parseInt(assentamentos),
           galaxia,
           sistemaSolar,
           coordenadas,
@@ -277,14 +277,14 @@ export default function Home({ route }) {
           <TextInput
             style={styles.planetInput}
             onChangeText={setPopulacao}
-            value={populacao}
+            value={populacao.toString()}
             keyboardType="numeric"
           />
           <PlaceHolder placeHolder={"Número de assentamentos Humanos"} />
           <TextInput
             style={styles.planetInput}
             onChangeText={setAssentamentos}
-            value={assentamentos}
+            value={assentamentos.toString()}
             keyboardType="numeric"
           />
 
