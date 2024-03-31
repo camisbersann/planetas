@@ -1,3 +1,4 @@
+//Importações do React Native;
 import React, { useEffect, useState } from "react";
 import {
   View,
@@ -9,6 +10,7 @@ import {
   Platform,
   ScrollView,
 } from "react-native";
+//Importações de estilos e componentes;
 import styles from "./styles";
 import Title from "../../components/Title";
 import PlanetClass from "../../models/planet";
@@ -18,8 +20,9 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import PlaceHolder from "../../components/PlaceHolder";
 import CardHome from "../../components/CardHome";
 
-
+//Definição do componete Home;
 export default function Home({ route }) {
+  //Hook para acessar a navegação;
   const navigation = useNavigation();
 
   // Verifica se route e route.params existem antes de acessá-los
@@ -28,6 +31,7 @@ export default function Home({ route }) {
 
   // console.log("tela de edição", planetParams)
 
+  //Declaração de estados;
   const [nomePlaneta, setNomePlaneta] = useState("");
   const [dataConquista, setDataConquista] = useState("");
   const [corPrimaria, setCorPrimaria] = useState("");
@@ -83,6 +87,7 @@ export default function Home({ route }) {
     }
   }, [planetParams, edit]);
 
+  //Função para lidar com a ação (editar ou apagar);
   const handlePlanetAction = () => {
     let mayAdd = verificaton();
 
@@ -123,14 +128,16 @@ export default function Home({ route }) {
         list.addPlanet(newPlanet);
         clearInputs();
         newPlanet.getDataConquistaPtBR();
-        console.log(newPlanet.getDataConquistaPtBR());
+        // console.log(newPlanet.getDataConquistaPtBR());
       }
+      //Navegação para a tela PlanetsRegistered;
       navigation.navigate("PlanetsRegistered");
     } else {
       return;
     }
   };
 
+  //Função para limpar os campos do formulário
   const clearInputs = () => {
     setIsUpdate(false);
     setNomePlaneta("");
@@ -147,6 +154,7 @@ export default function Home({ route }) {
     setTitulo("");
   };
 
+  //Função de verificação;
   const verificaton = () => {
     let errors = [];
 
@@ -210,6 +218,7 @@ export default function Home({ route }) {
     }
   };
 
+  //Retorno do componente Home
   return (
     <ImageBackground
       source={require("../../../assets/galaxia01.jpeg")}
