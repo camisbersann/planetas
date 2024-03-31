@@ -1,27 +1,34 @@
+//Importação necessária do React Native;
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+//Importação do estilo;
 import styles from "./styles";
+//Importação das classes
 import PlanetClass from "../../models/planet";
-import { useNavigation } from "@react-navigation/native";
 import list from "../../models/planetList";
+//Importação do hook useNavigation para nevegação entre telas;
+import { useNavigation } from "@react-navigation/native";
+//Importação de ícones utilizados;
 import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 
+//Definição do componete Details;
 export default function Details({ route }) {
   const navigation = useNavigation();
+  //Extração dos dados do planeta via rota;
   const { data } = route.params;
 
+  //Função para editar um planeta;
   const editPlanet = () => {
     navigation.navigate("Home", { planet: data, edit: true });
   };
 
+  //Função para excluir um planta;
   const deletePlanet = () => {
     list.remove(data.id);
     navigation.navigate("PlanetsRegistered");
   };
 
   return (
-   
-   
     <View style={styles.container}>
       <Text style={styles.title}>Detalhes</Text>
 
